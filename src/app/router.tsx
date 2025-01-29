@@ -1,7 +1,9 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
-import Login from '@features/Login';
 
 import App from '../App';
+
+import Login from '@features/Login';
+import Signup from '@features/Signup';
 import Dashboard from '@/features/Dashboard';
 
 export const createRouter = () =>
@@ -9,6 +11,10 @@ export const createRouter = () =>
         {
             path: '/login',
             element: <Login />,
+        },
+        {
+            path: '/signup',
+            element: <Signup />,
         },
         {
             path: '/',

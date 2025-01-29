@@ -1,8 +1,7 @@
 import "@mantine/core/styles.css";
 import { MantineProvider } from "@mantine/core";
-
+import { theme } from './theme/mantine';
 import * as yup from 'yup';
-
 import { translation } from './constants/schemas';
 
 yup.setLocale(translation);
@@ -14,7 +13,7 @@ const Root = () => {
     const router = createRouter();
 
     return (
-        <MantineProvider>
+        <MantineProvider theme={theme}>
             <RouterProvider router={router} />
         </MantineProvider>
     );
