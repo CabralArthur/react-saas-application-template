@@ -1,50 +1,84 @@
-# React + TypeScript + Vite
+# React SaaS Application Template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React SaaS application template with authentication flow, React Query for data fetching, and a beautiful UI using Tailwind CSS.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Authentication & Authorization
+- Complete authentication flow (Login, Register, Password Reset)
+- Protected routes with React Router
+- Token-based authentication
+- Automatic token refresh
+- Session management with Zustand
 
-## Expanding the ESLint configuration
+### UI/UX
+- Modern and responsive design
+- Loading states and animations
+- Form validation with Yup
+- Toast notifications with React Toastify
+- Beautiful icons with Lucide React
+- Animated components with Tailwind CSS
+- Dark mode support
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Data Management
+- Efficient data fetching with React Query
+- Global state management with Zustand
+- Type-safe API calls
+- Automatic error handling
+- Request caching and invalidation
 
-- Configure the top-level `parserOptions` property like this:
+### Development Experience
+- TypeScript for type safety
+- Modern React patterns and hooks
+- Code splitting and lazy loading
+- Vite for fast development and building
+- ESLint for code quality
+- Proper folder structure
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Tech Stack
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Core
+- React 18
+- TypeScript
+- Vite
+- React Router v7
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### State Management & Data Fetching
+- Zustand (State Management)
+- TanStack Query v5 (Data Fetching)
+- Yup (Form Validation)
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Styling & UI
+- Tailwind CSS
+- Radix UI (Headless Components)
+- Lucide React (Icons)
+- Class Variance Authority (Component Variants)
+- Tailwind Merge (Class Merging)
+- Motion (Animations)
+
+### Development Tools
+- ESLint
+- TypeScript
+- PostCSS
+- Autoprefixer
+
+## Getting Started
+
+1. Clone the repository
+
+2. Run `npm install` to install the dependencies
+
+3. Run `npm run dev` to start the development server
+
+4. Run `npm run build` to build the application
+
+
+## Project Structure
+
+- `src/`: Source code
+- `src/components/`: React components
+- `src/pages/`: React pages
+- `src/processes/`: Process functions
+- `src/stores/`: Zustand stores
+- `src/types/`: TypeScript types
+- `src/utils/`: Utility functions
