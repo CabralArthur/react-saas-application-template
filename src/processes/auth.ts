@@ -33,8 +33,16 @@ export const signup = async (credentials: SignupCredentials): Promise<void> => {
     await api.post('/auth/register', credentials)
 };
 
-export const resetPassword = async (email: string): Promise<void> => {
-    await api.post('/auth/reset-password', { email })
+export const resetPassword = async ({ password, confirmPassword, token }: { password: string, confirmPassword: string, token?: string }): Promise<void> => {
+    await api.post('/auth/reset-password', { password, confirmPassword, token })
+};
+
+export const validateResetPassword = async (token: string): Promise<void> => {
+    await api.get('/auth/validate-reset-password', { params: { token } })
+};
+
+export const requestResetPassword = async (email: string): Promise<void> => {
+    await api.post('/auth/request-reset-password', { email })
 };
 
 export const verifyEmail = async (token: string): Promise<VerifyEmailResponse> => {

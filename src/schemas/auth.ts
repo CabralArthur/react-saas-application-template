@@ -11,3 +11,12 @@ export const signupSchema = yup.object({
     password: yup.string().min(8).required(),
     confirmPassword: yup.string().min(8).required()
 });
+
+export const resetPasswordSchema = yup.object({
+    password: yup.string().min(8).required(),
+    confirmPassword: yup.string().min(8).required()
+});
+
+export const requestPasswordResetSchema = yup.object({
+    email: yup.string().email().required()
+});

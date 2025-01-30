@@ -27,7 +27,7 @@ export default function LoginPage() {
 
   return (
     <div className="flex min-h-screen flex-1">
-      <div className="w-full bg-slate-200 flex flex-col items-center justify-center antialiased relative">
+      <div className="w-full bg-slate-200 flex flex-col items-center justify-center antialiased relative hidden lg:block">
         <div className="absolute inset-0">
           <Waves
             lineColor="rgba(0, 0, 0, 0.3)"
@@ -122,7 +122,7 @@ export default function LoginPage() {
                     to="/signup"
                     className="font-medium text-primary hover:underline"
                   >
-                    Start with a 14 days trial
+                    Sign up
                   </Link>
                 </span>
               </div>

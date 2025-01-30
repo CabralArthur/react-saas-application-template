@@ -1,14 +1,24 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useEffect, useState } from "react";
-import useResetPasswordPageContainer from "./ResetPasswordPage.container";
+import { useEffect } from "react";
 import { EyeOffIcon, EyeIcon } from "lucide-react";
 import { Label } from "@/components/ui/label";
+import useResetPasswordContainer from "./ResetPassword.container";
 
-export default function ResetPasswordPage() {
-    const { validateToken, register, handleSubmit, errors, onSubmit, isLoading } = useResetPasswordPageContainer();
-    const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+export default function ResetPassword() {
+    const {
+        validateToken,
+        register,
+        handleSubmit,
+        errors,
+        onSubmit,
+        isLoading,
+        showPassword,
+        setShowPassword,
+        showConfirmPassword,
+        setShowConfirmPassword
+    } = useResetPasswordContainer();
+
     useEffect(() => {
         validateToken();
     }, [validateToken]);
