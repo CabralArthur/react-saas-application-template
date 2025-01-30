@@ -1,51 +1,42 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 
 import App from '../App';
 
+import Home from '@features/Home';
 import Login from '@features/Login';
 import Signup from '@features/Signup';
-import Dashboard from '@/features/Dashboard';
+
+import PublicRouteGuard from '@/guards/Public';
+import PrivateRouteGuard from '@/guards/Private';
 
 export const createRouter = () =>
     createBrowserRouter([
         {
-            path: '/login',
-            element: <Login />,
-        },
-        {
-            path: '/signup',
-            element: <Signup />,
+            element: <PublicRouteGuard />,
+            children: [
+                {
+                    path: '/login',
+                    element: <Login />,
+                },
+                {
+                    path: '/signup',
+                    element: <Signup />,
+                }
+            ]
         },
         {
             path: '/',
             element: <App />,
             children: [
                 {
-                    index: true,
-                    element: <Navigate replace to="/dashboard" />,
-                },
-                {
-                    path: 'dashboard',
-                    element: <Dashboard />,
-                },
-                // {
-                //     element: <RouteProtection />,
-                //     children: [
-                //         {
-                //             path: 'dashboard',
-                //             element: <Dashboard />,
-                //         }
-                //     ],
-                // },
-                // {
-                //     element: <AdminRouteProtection />,
-                //     children: [
-                //         {
-                //             path: 'users',
-                //             element: <UsersContainer />,
-                //         }
-                //     ],
-                // }
+                    element: <PrivateRouteGuard />,
+                    children: [
+                        {
+                            path: "/home",
+                            element: <Home />,
+                        }
+                    ],
+                }
             ],
         },
     ]

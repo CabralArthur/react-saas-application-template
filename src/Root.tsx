@@ -1,21 +1,25 @@
-import "@mantine/core/styles.css";
-import { MantineProvider } from "@mantine/core";
-import { theme } from './theme/mantine';
-import * as yup from 'yup';
-import { translation } from './constants/schemas';
-
-yup.setLocale(translation);
+import './theme/index.css';
 
 import { createRouter } from "./app/router";
 import { RouterProvider } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const Root = () => {
+    const queryClient = new QueryClient({
+        defaultOptions: {
+            queries: {
+                retry: 1,
+                refetchOnWindowFocus: false,
+            },
+        },
+    });
+
     const router = createRouter();
 
     return (
-        <MantineProvider theme={theme}>
+        <QueryClientProvider client={queryClient}>
             <RouterProvider router={router} />
-        </MantineProvider>
+        </QueryClientProvider>
     );
 };
 
