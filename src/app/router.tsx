@@ -36,10 +36,10 @@ export const createRouter = () =>
         },
         {
             path: '/',
-            element: <App />,
+            element: <PrivateRouteGuard />,
             children: [
                 {
-                    element: <PrivateRouteGuard />,
+                    element: <App />,
                     children: [
                         {
                             path: "/home",
